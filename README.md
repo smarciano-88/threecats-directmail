@@ -32,4 +32,16 @@ sends a personalized mail
 `threecats_customer_data.csv` — 100 synthetic customer records for 
 Three Cats Coffee 
 
-Upload this file directly into Opal Chat to run the test end to end.
+## How to Demo End to End
+1. Open a fresh Opal Chat thread
+2. Upload threecats_customer_data.csv
+3. Type: "I've uploaded our customer data from a recent experiment we ran. I'm not sure what to make of it or what to do next.
+Can you analyze this data for me?"
+4. Opal runs the Analysis Pipeline:
+   Make SQL → Hypothesis Generator → Decisioning Agent
+5. Review the output — segment identified, hypotheses ranked, ICE scored
+6. Type: "Build a test plan for the top hypothesis and activate the 
+   high-value segment for direct mail campaign dm_tcc_hv_spring_2026"
+7. Opal runs the Activation Pipeline:
+   Experiment Planning → send_direct_mail
+8. Confirm messages are sent. 
