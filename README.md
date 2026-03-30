@@ -1,11 +1,10 @@
 # Three Cats Coffee — Direct Mail API Tool
 
-A custom tool that activates high-value customer segments for physical direct mail campaigns via a mocked Lob API response.
+A custom tool that activates high-value customer segments for physical direct mail campaigns via a mocked API response.
 
 ## What it does
 Takes a high-value segment output from the Make SQL agent and 
-sends a personalized postcard with a unique SALBxx voucher code 
-to each high-value Three Cats Coffee converter.
+sends a personalized mail
 
 ## Endpoints
 - GET /discovery — Opal tool registration endpoint
