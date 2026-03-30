@@ -1,2 +1,2 @@
 # threecats-directmail
-Interview project, deploying a direct mail solution
+Interview project -- deploying a direct mail solution
