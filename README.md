@@ -27,35 +27,9 @@ sends a personalized mail
 - Node.js — no dependencies required for local run
 - Vercel — serverless deployment
 - Mocked Lob API response for demo purposes
-```
 
----
+## Sample Data
+`threecats_customer_data.csv` — 100 synthetic customer records for 
+Three Cats Coffee 
 
-**Step 3 — Connect to Vercel**
-
-1. Go to **vercel.com** and sign in with GitHub
-2. Click **Add New Project**
-3. Import your `threecats-directmail` repo
-4. Click **Deploy** — no configuration needed
-
-Vercel will give you a permanent URL like:
-```
-https://threecats-directmail.vercel.app
-```
-
----
-
-**Step 4 — Update your Opal tool registry**
-
-Go to **Opal → Tools → Registries** and update the discovery URL from your ngrok URL to:
-```
-https://threecats-directmail.vercel.app/discovery
-```
-
----
-
-**Step 5 — Include in your submission email**
-
-Add this line to your email:
-```
-Custom Tool GitHub repo: https://github.com/yourusername/threecats-directmail
+Upload this file directly into Opal Chat to run the test end to end.
