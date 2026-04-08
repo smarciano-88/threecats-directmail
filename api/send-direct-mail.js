@@ -20,6 +20,8 @@ export default function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('BODY:', JSON.stringify(req.body));
+
   try {
     const params = req.body.parameters || req.body.arguments || req.body;
     const { campaign_name, segment_data, mail_type = 'postcards' } = params;
