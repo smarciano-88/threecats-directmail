@@ -15,7 +15,7 @@ export default function handler(req, res) {
         { name: 'mail_type', type: 'string', description: 'postcards, letters, or self_mailers. Default: postcards', required: false }
       ],
       endpoint: 'https://threecats-directmail-5nth.vercel.app/api/send-direct-mail',
-      http_method: 'GET',
+      http_method: 'POST',
       auth_requirements: []
     }]
   });
