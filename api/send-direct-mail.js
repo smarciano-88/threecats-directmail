@@ -1,10 +1,19 @@
 export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
+  }
+
+  // Handle GET for endpoint validation
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      status: 'ok',
+      endpoint: '/api/send-direct-mail',
+      method: 'POST'
+    });
   }
 
   if (req.method !== 'POST') {
