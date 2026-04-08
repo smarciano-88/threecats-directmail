@@ -21,9 +21,10 @@ export default function handler(req, res) {
   }
 
   try {
+    console.log('Request body:', JSON.stringify(req.body));
     const params = req.body.parameters || req.body.arguments || req.body;
     const { campaign_name, segment_data, mail_type = 'postcards' } = params;
-    const records = JSON.parse(segment_data);
+    const records = typeof segment_data === 'string' ? JSON.parse(segment_data) : segment_data;
     const results = [];
 
     records.forEach((user) => {
