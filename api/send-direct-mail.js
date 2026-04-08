@@ -8,6 +8,11 @@ export default function handler(req, res) {
     return res.status(200).end();
   }
 
+  console.log('METHOD:', req.method);
+  console.log('BODY:', JSON.stringify(req.body));
+  console.log('QUERY:', JSON.stringify(req.query));
+
+
   try {
     const params = req.method === 'POST'
       ? (req.body.parameters || req.body.arguments || req.body)
