@@ -8,26 +8,16 @@ export default function handler(req, res) {
     return res.status(200).end();
   }
 
-  if (req.method === 'GET') {
-    return res.status(200).json({
-      status: 'ok',
-      endpoint: '/api/send-direct-mail',
-      method: 'POST'
-    });
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  console.log('BODY:', JSON.stringify(req.body));
-
   try {
-    const params = req.body.parameters || req.body.arguments || req.body;
-    const { campaign_name, segment_data, mail_type = 'postcards' } = params;
-    const records = typeof segment_data === 'string' ? JSON.parse(segment_data) : segment_data;
-    const results = [];
+    const params = req.method === 'POST'
+      ? (req.body.parameters || req.body.arguments || req.body)
+      : req.query;
 
+    const { campaign_name, segment_data, mail_type = 'postcards' } = params;
+
+    const records = typeof segment_data === 'string' ? JSON.parse(segment_data) : segment_data;
+
+    const results = [];
     records.forEach((user) => {
       const lobId = 'psc_' + Math.random().toString(36).substr(2, 12);
       const sendDate = new Date();
