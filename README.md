@@ -30,7 +30,7 @@ https://threecats-directmail-5nth.vercel.app/api/discovery
 3. Type: "Analyze our Three Cats Coffee customer data and tell me what to test next"
 4. Opal runs the Analysis Pipeline:
    Make SQL → Hypothesis Generator → Decisioning Agent
-5. Review the output — segment identified, hypotheses ranked, ICE scored
+5. Review the output — segment identified, hypotheses ranked, segment scoring
 6. Type: "Build a test plan for the top hypothesis and activate the
    high-value segment for direct mail"
 7. Opal runs the Activation Pipeline:
