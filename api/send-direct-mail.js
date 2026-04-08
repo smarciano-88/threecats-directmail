@@ -2,12 +2,12 @@ export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  // Handle GET for endpoint validation
   if (req.method === 'GET') {
     return res.status(200).json({
       status: 'ok',
@@ -21,7 +21,6 @@ export default function handler(req, res) {
   }
 
   try {
-    console.log('Request body:', JSON.stringify(req.body));
     const params = req.body.parameters || req.body.arguments || req.body;
     const { campaign_name, segment_data, mail_type = 'postcards' } = params;
     const records = typeof segment_data === 'string' ? JSON.parse(segment_data) : segment_data;
@@ -33,7 +32,6 @@ export default function handler(req, res) {
       sendDate.setDate(sendDate.getDate() + 2);
       const deliveryDate = new Date();
       deliveryDate.setDate(deliveryDate.getDate() + 9);
-
       results.push({
         user_id: user.user_id,
         full_name: user.full_name,
@@ -49,7 +47,6 @@ export default function handler(req, res) {
     });
 
     const delivered = results.filter(r => r.status === 200).length;
-
     res.status(200).json({
       campaign: campaign_name,
       status: 'success',
@@ -61,7 +58,6 @@ export default function handler(req, res) {
       voucher_format: 'SALBxx',
       results: results
     });
-
   } catch (err) {
     res.status(400).json({ error: 'Invalid request', details: err.message });
   }
