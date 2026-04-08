@@ -2,11 +2,9 @@ export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
-
   res.status(200).json({
     functions: [{
       name: 'send_direct_mail',
@@ -16,7 +14,7 @@ export default function handler(req, res) {
         { name: 'segment_data', type: 'string', description: 'JSON array of customer records with name, address, and voucher_code fields', required: true },
         { name: 'mail_type', type: 'string', description: 'postcards, letters, or self_mailers. Default: postcards', required: false }
       ],
-      endpoint: '/api/send-direct-mail',
+      endpoint: 'https://threecats-directmail-5nth.vercel.app/api/send-direct-mail',
       http_method: 'POST',
       auth_requirements: []
     }]
